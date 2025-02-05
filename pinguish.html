@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasao a poto y a kk</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        img {
+            animation: spin 4s linear infinite;
+            cursor: pointer;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(246, 4, 4, 0.5);
+            text-align: center;
+        }
+        #message button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #noButton {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <img src="renepuente.jpeg" alt="Broma" onclick="showMessage()">
+
+    <div id="message">
+        <p>¿Te gusta el pico?</p>
+        <button onclick="alert('Siempre se supo JAJAJAJ')">Sí</button>
+        <button id="noButton" onmouseover="moveButton()">No</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = 'fixed';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
